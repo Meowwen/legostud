@@ -1,0 +1,83 @@
+body {
+    font-family: 'Bruno Ace SC', cursive;
+    font-family: 'Roboto Mono', monospace;
+    background-image: url('https://www.solidbackgrounds.com/images/2880x1800/2880x1800-light-cyan-solid-color-background.jpg');
+}
+  header {
+    background-image: url('https://github.com/Meowwen/public-1/blob/main/james-a-molnar-BIDRXOGPMro-unsplash.jpg?raw=true');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    color: white;
+    text-align: center;
+    padding: 180px;
+  }
+  .glow {
+    font-size: 80px;
+    color: #fff;
+    text-align: center;
+    animation: glow 1s ease-in-out infinite alternate;
+  }
+  @-webkit-keyframes glow {
+    from {
+      text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;
+    }
+    to {
+      text-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6;
+    }
+  }
+
+.glow-1 {
+    
+    font-size: 30px;
+    color: #fff;
+    text-align: center;
+    text-decoration: underline;
+    animation: glow 1s ease-in-out infinite alternate;
+  }
+  @-webkit-keyframes glow-1 {
+    from {
+      text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;
+    }
+    to {
+      text-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6;
+    }
+  }
+h2, h3, h4 {
+    font-weight: bold;
+    text-align:center;
+    text-decoration: underline;
+    color: #007a99;
+  }
+p { 
+  text-indent: 50px;
+  color: black;
+}
+.hr {
+margin-bottom: 2.5rem;
+}
+.ui-component {
+margin-bottom: 5.75rem;
+}
+ .intro {
+    margin: auto;
+    max-width: 600px;
+    padding:100px;
+  }
+
+  form {
+    max-width: 265px;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid;
+    border-radius: 5px;
+  }
+.footer {
+text-align: center;
+font-style: italic;
+padding: 1rem;
+}
+.footer > span {
+font-weight: bold;
+margin-left: 0.75rem;
+}
