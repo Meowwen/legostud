@@ -1,4 +1,4 @@
-# hello-world
+# legostud
 This is my first repository
 ## A little about me
 I am **really** enjoying this Course.
