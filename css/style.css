@@ -1,8 +1,8 @@
-body {
+    body {
       font-family: 'Bruno Ace SC', cursive;
       font-family: 'Roboto Mono', monospace;
+      background-image: url('https://www.solidbackgrounds.com/images/2880x1800/2880x1800-light-cyan-solid-color-background.jpg');
 }
-
     header {
       background-image: url('https://github.com/Meowwen/public-1/blob/main/james-a-molnar-BIDRXOGPMro-unsplash.jpg?raw=true');
       background-repeat: no-repeat;
@@ -27,11 +27,8 @@ body {
       }
     }
  
-.container-fluid {
-  margin: 80px;
-}
-
  .glow-1 {
+      
       font-size: 30px;
       color: #fff;
       text-align: center;
@@ -46,70 +43,6 @@ body {
         text-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6;
       }
     }
- 
-  .dark-mode {
-  background-color: #333;
-  color: #f0f0f0;
-  transition: all 0.4s ease-in;
-}
-
-.toggle-switch {
-  position: relative;
-  display: inline-block;
-  width: 3.75rem;
-  height: 2.13rem;
-  margin-bottom: 0.63rem;
-  margin-inline: auto;
-}
-
-.toggle-switch input {
-  opacity: 0;
-  width: 0;
-  height: 0;
-}
-
-.slider {
-  position: absolute;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #ccc;
-  transition: all 0.4s ease-in;
-  border-radius: 2.13rem;
-}
-
-.slider:before {
-  position: absolute;
-  content: "";
-  height: 1.63rem;
-  width: 1.63rem;
-  left: 0.25rem;
-  bottom: 0.25rem;
-  background-color: white;
-  transition: 0.4s;
-  border-radius: 50%;
-}
-
-input:checked + .slider {
-  background-color: #2196f3;
-}
-
-
-input:focus + .slider {
-  box-shadow: 0 0 2px #2196f3;
-}
-
-input:checked + .slider:before {
-  transform: translateX(1.63rem);
-}
-
-*, *::before, *::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
 
 h2, h3, h4 {
       font-weight: bold;
@@ -117,87 +50,9 @@ h2, h3, h4 {
       text-decoration: underline;
       color: #007a99;
     }
-
-.container {
-  margin: 0 auto;
-  max-width: 600px;
-  padding:100px;
-}
-
-.item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 40vh;
-  opacity: 0;
-  transition: opacity 0.5s, transform 0.5s;
-}
-
-.item > p {
-  text-align: center;
-  text-indent: 50px;
-}
-.left {
-  transform-origin: left center;
-  transform: translateX(-50%);
-}
-.right {
-  transform-origin: right center;
-  transform: translateX(50%);
-}
-
-.slide-in {
-  opacity: 1;
-  transform: translateX(0);
-}
-
-.card-title{
-  color: blue;
-}
-.card-text{
-  color: black;
-}
-
-.pie {
-  margin-left: auto;
-  margin-right: auto;
-  width: 40%;
-}
-
-svg {
-    float: right;
-    
-}
-
-.legend {
-  float: right;
-  font-family: 'Bruno Ace SC';
-  font-size: .7em;
-}
-
-.pie text {
-  font-family: 'Bruno Ace SC';
-  fill: #000;
-}
-
-.pie .name-text{
-  font-size: .8em;
-}
-
-.pie .value-text{
-  font-size: 3em;
-}
-
-#map {
-  height: 80%;
-  width: 50%;
-}
-html,
-body {
-  height: 80%;
-  margin: 0;
-  padding: 0;
+ p { 
+    text-indent: 50px;
+    color: black;
 }
 .hr {
   margin-bottom: 2.5rem;
@@ -205,83 +60,19 @@ body {
 .ui-component {
   margin-bottom: 5.75rem;
 }
-*, *::before, *::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+   .intro {
+      margin: auto;
+      max-width: 600px;
+      padding:100px;
+    }
 
-.main {
-  width: 100%;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-}
-
-#form-submitted-msg {
-  margin-bottom: 3rem;
-  border-radius: 3px;
-  background-color: rgb(67, 161, 67);
-  padding: 0.5rem;
-  width: 40%;
-  text-align: center;
-  color: #fff;
-  display: none;
-}
-
-#exampleForm {
-  width: 40%;
-}
-
-.input-group {
-  margin-bottom: 1.5rem;
-}
-
-.input-group:not(.radio):not(.checkbox) {
-  gap: 0.25rem;
-  flex-direction: column;
-}
-
-.input-group:not(.radio):not(.checkbox) input {
-  width: 100%;
-  border-radius: 0.375rem !important;
-}
-
-.input-group.checkbox {
-  gap: 1rem;
-}
-
-.input-group.radio {
-  display: flex;
-  gap: 1.5rem;
-  width: 100%;
-}
-
-legend {
-  font-size: 1rem;
-  width: max-content;
-}
-
-.form-btns {
-  display: flex;
-  width: 100%;
-  gap: 1rem;
-  margin-top: 2.5rem;
-}
-
-.form-btns > button {
-  padding: 0.3rem 1.5rem;
-}
-
-.form-btns > .submit {
-  padding-inline: 3rem;
-}
-
-.error-msg {
-  display: none;
-}
+    form {
+      max-width: 265px;
+      margin: auto;
+      padding: 20px;
+      border: 1px solid;
+      border-radius: 5px;
+    }
 .footer {
   text-align: center;
   font-style: italic;
@@ -291,3 +82,4 @@ legend {
 font-weight: bold;
 margin-left: 0.75rem;
 }
+  
