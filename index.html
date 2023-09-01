@@ -1,15 +1,12 @@
 <!DOCTYPE html>
   <html>
   <head>
-  <link rel="icon" type="image/x-icon" href="./img/deadpool.ico">
-  <link rel="stylesheet" href="./css/style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.2/css/bootstrap.min.css">
+  <link rel="icon" type="image/x-icon" href="Deadpool.ico">
+  <link rel="stylesheet" href="css">
   <title>This is me</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bruno+Ace+SC&family=Roboto+Mono&display=swap" rel="stylesheet">
-    <script src="https://d3js.org/d3.v4.min.js"></script>
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
   </head>
   <body>
    <header><h1 class="glow">Wendy Garnica</h1></header>
@@ -17,7 +14,7 @@
     <nav class="navbar navbar-expand-lg navbar-dark">
       <div class="container-fluid">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
+        <li class="item">
         <a class="nav-link active" aria-current="page" href="#">Home</a>
             </li>
         <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
@@ -33,39 +30,19 @@
         </div>
       </div>
     </nav>
-  </section><br>
-  
-  <div class="Container-1">
-   <h5>Dark/Light Mode</h5><br>
-   <label class="toggle-switch">
-     <input type="checkbox" id="mode-toggle">
-     <span class="slider"></span>
-    </label>
-   </div>
+    </section>
     
-    <div class="container">
-    <section class="item left">
+    <section class="intro">
       <h2>Introduction</h2>
    <p>Hello there and welcome to my website! Here you will find some interesting things about myself such as my LEGO collection (some like to call it an addiction...&#128064;) and new career path.</p>
-      </section>
-      
-   <section class="item right">
     <h2>About Me</h2>
     <p>My name is Wendy and I would like to tell you a little bit about my LEGO collection journey. It all started when my parents bought some sets for me that I absolutely fell in love with. When it really kicked off was back in December of 2014. I bought my very first LEGO Star Wars set with my own money. It was an AT-AT. Still have it sealed to this day. I now have over 300<a href="https://www.lego.com/en-us"> LEGO</a> sets. I would like for you to be apart of my building journey. Here's my <a href="linkedin.com/in/wendy-garnica-5079a81bb">Linkedin</a> if you want to follow my journey.</p>
-     </section>
      
-     <section class="item left">
       <h2>The Journey to Becoming a Software Developer</h2>
       <p>Thanks to <a href="https://www.amazoncareerchoice.com/home">Amazon's Career Choice program</a>, I'm currently enrolled in the Software Development course lead by <a href="https://www.correlation-one.com/">Correlation One.</a> I always knew I wanted a career that had something to do with computers but I was a bit scared to take a chance. For the longest time I just never took that chance becuase I was scared of failure but this year I set my nerves aside and took that chance. I'm glad I did take that leap of faith because now I can't wait to see where this new career path will take me.</p>
     </section>
-    </div>  
      <hr class="hr" />
-    <div id="main">
-  
-</div>
-    
-    <hr class="hr" />
-     
+      
       <section id="cards" class="ui-component">
       <h2>My Knowledge</h2><br>
      <div class="row">
@@ -94,78 +71,30 @@
         <img src="https://i.giphy.com/media/3oeSAK2k0zDaQCbqJG/giphy.webp" class="card-img-top" alt="Laughing Java the hut">
         <div class="card-body">
           <h5 class="card-title">JavaScript</h5>
-          <p class="card-text"><strong>Check out the sorted-list. Click the read more button. "Don't underestimate the Force." - Darth Vader</strong></p>
-          <a href="https://codepen.io/Meowwen/pen/RwqXRqb" class="btn btn-primary">Read More</a>
+          <p class="card-text">This journey has not begun but I look forward to take on the challenge. "Don't underestimate the Force." - Darth Vader</p>
+          <a href="#" class="btn btn-primary">Read More</a>
           </div>
         </div>
       </div>
      </div>
     </section>
    <hr class="hr" />
-    <h4> CHECK OUT MY LEGO COLLECTION AND MY HOME TOWN<br><br>Top Sets in Themes</h4>
-    
- <div id="chart"></div>
-   <div id="map"></div>
-    <script
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD2PqLkYG5uRFziZ2iCFqYpS8ujAVd1ZCI&callback=initMap&v=weekly"
-      defer
-    ></script>
-    
- 
- <main class="container main">
-   
-   
-    <div id="form-submitted-msg">Form successfully submitted!</div>
-
-    <form id="exampleForm" novalidate>
       
-      <div class="input-group">
-        
-        <label for="firstName" class="form-label">First name </label>
-        <input type="text" id="firstName" name="firstName" class="form-control" required>
-        <small class="error-msg invalid-feedback">Required</small>
-      </div>
-      <div class="input-group">
-        <label for="lastName" class="form-label">Last name </label>
-        <input type="text" id="lastName" name="lastName" class="form-control" required>
-        <small class="error-msg invalid-feedback">Required</small>
-      </div>
-      <div class="input-group">
-        <label for="email" class="form-label">Email </label>
-        <input type="email" id="email" name="email" class="form-control" required>
-        <small class="error-msg invalid-feedback">Required</small>
-      </div>
-      <div class="input-group">
-        <label for="password" class="form-label">Password </label>
-        <input type="password" id="password" name="password" class="form-control" required>
-        <small class="error-msg invalid-feedback">Required</small>
-      </div>
-      <div class="input-group radio">
-        <div class="form-check">
-          <input type="radio" id="personal" name="purpose" value="Personal" class="form-check-input" required>
-          <label for="personal" class="form-check-label">Personal</label>
-          <small class="error-msg invalid-feedback">Required</small>
-        </div>
-    
-        <div class="form-check">
-          <input type="radio" id="business" name="purpose" value="Business" class="form-check-input" required>
-          <label for="business" class="form-check-label">Business</label>
-          <small class="error-msg invalid-feedback">Required</small>
-        </div>
-      </div>
-      
-      <div class="form-btns">
-        <button type="submit" class="btn btn-primary submit" disabled>SUBMIT</button>
-        <button type="reset" class="btn btn-secondary">CLEAR FORM</button>
-      </div>
-    </form>
-  </main>      
-
+  <section id="forms" class="ui-component">
+  <h2>Contact Me!</h2>
+  <form action="/example_action.html">
+  <label for="name">Name:</label>
+  <input type="text" id="name" name="name"><br><br>
+  <label for="email">Email:</label>
+  <input type="email" id="email" name="email"><br><br>
+  <label for="ftheme">Comments:</label>
+  <textarea id="message" name="theme"></textarea><br> <br>
+  <input type="submit" Value="send"><br>
+    </section>
     <hr class="hr" />
     <footer class="footer">
       <span style="color: #007a99">&copy;2023 <strong>Wendy Garnica.</strong></span> All rights reserved.
     </footer>
- <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.min.js"></script>
-<script src="script.js"></script>
+       
 </body>
 </html>
