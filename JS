@@ -1,0 +1,320 @@
+const body = document.querySelector('body');
+
+const modeToggle = document.getElementById('mode-toggle');
+
+const modeStatus = document.querySelector('.mode-status');
+
+function toggleMode() {
+  
+body.classList.toggle('dark-mode');
+ 
+modeStatus.innerText = "Currently in " + modeMessage;
+}
+modeToggle.addEventListener('click', toggleMode);
+
+const items = document.querySelectorAll('.item');
+
+const options = {
+  threshold: 0.5
+};
+
+const observer = new IntersectionObserver(entries => {
+  
+entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      
+  entry.target.classList.add('slide-in');
+    }
+  });
+}, options);
+
+items.forEach(item => {
+  observer.observe(item);
+});
+
+var data = [
+  {name: "Star Wars", value: 152},
+  {name: "BrickHeadz", value: 52},
+  {name: "Promotional", value: 23},
+  {name: "Harry Potter", value: 18},
+  {name: "Minifigure Series", value: 17},
+];
+var text = "";
+
+var width = 200;
+var height = 200;
+var thickness = 40;
+var duration = 750;
+var padding = 10;
+var opacity = .8;
+var opacityHover = 1;
+var otherOpacityOnHover = .8;
+var tooltipMargin = 13;
+
+var radius = Math.min(width-padding, height-padding) / 2;
+var color = d3.scaleOrdinal(d3.schemeCategory10);
+
+var svg = d3.select("#chart")
+.append('svg')
+.attr('class', 'pie')
+.attr('width', width)
+.attr('height', height);
+
+var g = svg.append('g')
+.attr('transform', 'translate(' + (width/2) + ',' + (height/2) + ')');
+
+var arc = d3.arc()
+.innerRadius(0)
+.outerRadius(radius);
+
+var pie = d3.pie()
+.value(function(d) { return d.value; })
+.sort(null);
+
+var path = g.selectAll('path')
+  .data(pie(data))
+  .enter()
+  .append("g")  
+  .append('path')
+  .attr('d', arc)
+  .attr('fill', (d,i) => color(i))
+  .style('opacity', opacity)
+  .style('stroke', 'white')
+  .on("mouseover", function(d) {
+      d3.selectAll('path')
+        .style("opacity", otherOpacityOnHover);
+      d3.select(this) 
+        .style("opacity", opacityHover);
+
+      let g = d3.select("svg")
+        .style("cursor", "pointer")
+        .append("g")
+        .attr("class", "tooltip")
+        .style("opacity", 0);
+ 
+      g.append("text")
+        .attr("class", "name-text")
+        .text(`${d.data.name} (${d.data.value})`)
+        .attr('text-anchor', 'middle');
+    
+      let text = g.select("text");
+      let bbox = text.node().getBBox();
+      let padding = 2;
+      g.insert("rect", "text")
+        .attr("x", bbox.x - padding)
+        .attr("y", bbox.y - padding)
+        .attr("width", bbox.width + (padding*2))
+        .attr("height", bbox.height + (padding*2))
+        .style("fill", "white")
+        .style("opacity", 0.75);
+    })
+  .on("mousemove", function(d) {
+        let mousePosition = d3.mouse(this);
+        let x = mousePosition[0] + width/2;
+        let y = mousePosition[1] + height/2 - tooltipMargin;
+    
+        let text = d3.select('.tooltip text');
+        let bbox = text.node().getBBox();
+        if(x - bbox.width/2 < 0) {
+          x = bbox.width/2;
+        }
+        else if(width - x - bbox.width/2 < 0) {
+          x = width - bbox.width/2;
+        }
+    
+        if(y - bbox.height/2 < 0) {
+          y = bbox.height + tooltipMargin * 2;
+        }
+        else if(height - y - bbox.height/2 < 0) {
+          y = height - bbox.height/2;
+        }
+    
+        d3.select('.tooltip')
+          .style("opacity", 1)
+          .attr('transform',`translate(${x}, ${y})`);
+    })
+  .on("mouseout", function(d) {   
+      d3.select("svg")
+        .style("cursor", "none")  
+        .select(".tooltip").remove();
+    d3.selectAll('path')
+        .style("opacity", opacity);
+    })
+  .on("touchstart", function(d) {
+      d3.select("svg")
+        .style("cursor", "none");    
+  })
+  .each(function(d, i) { this._current = i; });
+
+let legend = d3.select("#chart").append('div')
+			.attr('class', 'legend')
+			.style('margin-top', '30px');
+
+let keys = legend.selectAll('.key')
+			.data(data)
+			.enter().append('div')
+			.attr('class', 'key')
+			.style('display', 'flex')
+			.style('align-items', 'center')
+			.style('margin-right', '20px');
+
+		keys.append('div')
+			.attr('class', 'symbol')
+			.style('height', '10px')
+			.style('width', '10px')
+			.style('margin', '5px 5px')
+			.style('background-color', (d, i) => color(i));
+
+		keys.append('div')
+			.attr('class', 'name')
+			.text(d => `${d.name} (${d.value})`);
+
+		keys.exit().remove();
+
+function initMap() {
+  const map = new google.maps.Map(document.getElementById("map"), {
+    zoom: 10,
+    center: { lat: 36.1716, lng: -115.1391 },
+  });
+  const image =
+    "https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png";
+  const beachMarker = new google.maps.Marker({
+    position: { lat: 36.1716, lng: -115.1391 },
+    map,
+    icon: image,
+  });
+}
+
+window.initMap = initMap;
+
+const form = document.getElementById('exampleForm')
+const submitButton = document.querySelector('.submit')
+const successMessage = document.getElementById('form-submitted-msg')
+
+
+const formElements = [ ...form.elements ]
+
+
+const allInputsValid = () => {
+  const valid = formElements.every((element) => {
+    if (element.nodeName === 'SELECT') {
+      return element.value !== 'Please select an option'
+    } else {
+      return element.checkValidity()
+    }
+  })
+
+
+  return valid
+}
+
+
+const handleChange = () => {
+  if (allInputsValid()) {
+    submitButton.removeAttribute('disabled', '')
+  } else {
+    submitButton.setAttribute('disabled', '')
+  }
+}
+
+
+const handleSubmit = (e) => {
+
+  e.preventDefault()
+
+  formElements.forEach((element) => {
+
+    if (!element.checkValidity()
+          && element.nodeName !== 'BUTTON'
+          && element.nodeName !== 'SELECT'  
+          && element.type !== 'checkbox'
+          && element.type !== 'radio'
+    ) {
+      element.style.borderColor = 'red'
+      element.nextElementSibling.style.color = 'red'
+
+      element.nextElementSibling.style.display = 'block'
+
+      element.previousElementSibling.style.color = 'red'
+    }
+
+    if (element.checkValidity()
+          && element.nodeName !== 'BUTTON'
+          && element.nodeName !== 'SELECT'
+          && element.type !== 'checkbox'
+          && element.type !== 'radio'
+    ) {
+      element.style.borderColor = '#CED4DA'
+      element.nextElementSibling.style.color = '#CED4DA'
+
+      element.nextElementSibling.style.display = 'none'
+
+      element.previousElementSibling.style.color = '#212529'
+    }
+
+
+    if (!element.checkValidity()
+          && (element.type === 'checkbox'
+              || element.type === 'radio')
+    ) {
+      element.style.borderColor = 'red'
+      element.nextElementSibling.style.color = 'red'
+    }
+
+
+    if (element.checkValidity()
+          && (element.type === 'checkbox'
+              || element.type === 'radio')
+    ) {
+      element.style.borderColor = '#CED4DA'
+      element.nextElementSibling.style.color = '#212529'
+    }
+
+
+    if (element.nodeName === 'SELECT'
+          && element.value === 'Please select an option'
+    ) {
+      element.style.borderColor = 'red'
+      element.nextElementSibling.style.color = 'red'
+
+      element.nextElementSibling.style.display = 'block'
+
+      element.previousElementSibling.style.color = 'red'
+    }
+
+
+    if (element.nodeName === 'SELECT'
+          && element.value !== 'Please select an option'
+    ) {
+      element.style.borderColor = '#CED4DA'
+      element.nextElementSibling.style.color = '#CED4DA'
+
+
+      element.nextElementSibling.style.display = 'none'
+
+
+      element.previousElementSibling.style.color = '#212529'
+    }
+  })
+
+
+  if (allInputsValid()) {
+    successMessage.style.display = 'block'
+
+    form.reset()
+
+    submitButton.setAttribute('disabled', '')
+
+    setTimeout(() => {
+      successMessage.style.display = 'none'
+    }, 3000)
+  }
+}
+
+
+formElements.forEach((element) => {
+  element.addEventListener('change', handleChange)
+})
+
+
+form.addEventListener('submit', (e) => handleSubmit(e))
